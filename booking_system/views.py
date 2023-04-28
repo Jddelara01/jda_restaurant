@@ -3,6 +3,7 @@ from django.views import generic, View
 from .models import Booking
 from django.http import HttpResponse
 from .forms import BookingForm
+import warnings
 
 
 class BookingDetail(View):
@@ -21,9 +22,11 @@ class BookingDetail(View):
         booking = get_object_or_404(queryset)
 
         booking_form = BookingForm(data=request.POST)
-        booking_form.save()
-
-        return render(request, 'booking.html', {
-            "booking": booking,
-            "booking_form": BookingForm()
-        },)
+        if booking_form.is_valid():
+            booking_form.save()
+            return render(request, 'booking.html', {
+                "booking": booking,
+                "booking_form": BookingForm()
+            })
+        else:
+            return render(request, "index.html")
