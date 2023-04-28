@@ -2,10 +2,35 @@
 
 {% block content %}
 
-<p>RED</p>
-
-<div>
-    <h1>Content here</h1>
+<div class="container p-3 my-5 border">
+    <form action="" method="POST">
+        {% csrf_token %}
+        <div class="mb-3 mt-3 col-sm-6">
+            <label for="name" class="form-label">Name:</label>
+            <input type="name" class="field" id="name" value="{{ booking.fullname }}" name="name">
+        </div>
+        <div class="mb-3 mt-3 col-sm-6">
+            <label for="email" class="form-label">Email:</label>
+            <input type="email" class="field" id="email" value="{{ booking.email }}" name="email">
+        </div>
+        <div class="mb-3 col-sm-6">
+            <label for="phone" class="form-label">Phone:</label>
+            <input type="tel" class="field" id="phone" value="{{ booking.phone }}" name="phone">
+        </div>
+        <div class="mb-3 col-sm-6">
+            <label for="preferred-date" class="form-label">Date:</label>
+            <input type="date" class="field" id="preferred-date" value="{{ booking.date }}" name="preferred-date">
+        </div>
+        <div class="mb-3 col-sm-6">
+            <label for="preferred-time" class="form-label">Time:</label>
+            <input type="time" class="field" id="preferred-time" value="{{ booking.time }}" name="preferred-time">
+        </div>
+        <div class="mb-3 col-sm-6">
+            <label for="num-people" class="form-label">Number of People:</label>
+            <input type="number" class="field" id="num-people" value="{{ booking.num_of_people }}" name="num-people">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
 </div>
 
 {% endblock content %}
