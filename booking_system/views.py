@@ -1,4 +1,4 @@
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render, HttpResponse, get_object_or_404
 from django.views import generic, View
 from .models import Booking, Table
 from .forms import BookingForm
@@ -10,6 +10,11 @@ def open_home_page(request):
 
 
 def make_reservation(request):
+
+    booking_form = BookingForm(request.POST)
+    if booking_form.is_valid():
+        booking_form.save()
+
     return render(request, 'booking.html', {
         "booking_form": BookingForm()
     })

@@ -16,3 +16,11 @@ class BookingForm(forms.ModelForm):
             'time',
             'num_of_people'
         ]
+
+        widget = {
+            'date': forms.SelectDateWidget(
+                years=(
+                    datetime.date.today().year, datetime.date.today().year + 1
+                    )
+                )
+        }

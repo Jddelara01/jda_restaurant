@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<p>JDA Restaurant</p>
+
+<div>
+    <p>To be able to make a reservation, please 
+        <a class="link" href="{% url 'account_signup' %}">sign up</a> or 
+        <a class="link" href="{% url 'account_login' %}">sign in</a>
+    </p>
+</div>
+
+{% endblock content %}
