@@ -14,7 +14,8 @@ class Table(models.Model):
     capacity = models.PositiveIntegerField(default=1)
 
     def __str__(self):
-        return str(self.pk)
+        table_num = 'Table' + ' ' + str(self.pk)
+        return table_num
 
 
 # Booking Model

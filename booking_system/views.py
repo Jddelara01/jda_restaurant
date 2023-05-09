@@ -8,6 +8,12 @@ import warnings
 def open_home_page(request):
     return render(request, 'index.html')
 
+
+def make_reservation(request):
+    return render(request, 'booking.html', {
+        "booking_form": BookingForm()
+    })
+
     # def get(self, request, *args, **kw):
     #     booking_query = Booking.objects.filter(email='jane@test.com')
     #     booking = get_object_or_404(booking_query)
