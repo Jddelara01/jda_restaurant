@@ -20,5 +20,5 @@ from booking_system import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('hello/', views.say_hello, name='hello'),
+    path('', views.open_home_page, name='open_home_page'),
 ]

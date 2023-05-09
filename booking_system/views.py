@@ -1,13 +1,12 @@
-from django.shortcuts import render
+from django.shortcuts import render, HttpResponse
 from django.views import generic, View
 from .models import Booking, Table
-from django.http import HttpResponse
 from .forms import BookingForm
 import warnings
 
 
-def say_hello(request):
-    return HttpResponse('Hello!')
+def open_home_page(request):
+    return render(request, 'index.html')
 
     # def get(self, request, *args, **kw):
     #     booking_query = Booking.objects.filter(email='jane@test.com')

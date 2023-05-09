@@ -11,10 +11,10 @@ class Table(models.Model):
     These will be the tables that can be assigned to a booking that will
     depend on the capacity of the table and the number of people per booking
     """
-    capacity = models.PositiveIntegerField()
+    capacity = models.PositiveIntegerField(default=1)
 
     def __str__(self):
-        return str(self.size)
+        return str(self.pk)
 
 
 # Booking Model
