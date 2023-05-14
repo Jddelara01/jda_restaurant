@@ -20,7 +20,7 @@ class Table(models.Model):
 
 # Booking Model
 class Booking(models.Model):
-    fullname = models.CharField(max_length=55, unique=True)
+    name = models.CharField(max_length=55, unique=True)
     email = models.EmailField(max_length=55)
     phone = PhoneNumberField(unique=True, region='IE')
     date = models.DateField()
@@ -34,4 +34,4 @@ class Booking(models.Model):
     table_num = models.ManyToManyField(Table)
 
     def __str__(self):
-        return self.fullname
+        return self.name

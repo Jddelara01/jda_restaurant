@@ -19,6 +19,15 @@ def make_reservation(request):
         "booking_form": BookingForm()
     })
 
+
+def get_reservation_detail(request):
+
+    bookings = Booking.objects.all()
+
+    return render(request, "display_booking.html", {
+        'bookings': bookings
+    })
+
     # def get(self, request, *args, **kw):
     #     booking_query = Booking.objects.filter(email='jane@test.com')
     #     booking = get_object_or_404(booking_query)

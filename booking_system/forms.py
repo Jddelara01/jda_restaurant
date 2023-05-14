@@ -9,7 +9,7 @@ class BookingForm(forms.ModelForm):
         model = Booking
 
         fields = [
-            'fullname',
+            'name',
             'email',
             'phone',
             'date',
@@ -17,10 +17,16 @@ class BookingForm(forms.ModelForm):
             'num_of_people'
         ]
 
-        widget = {
+        widgets = {
             'date': forms.SelectDateWidget(
                 years=(
                     datetime.date.today().year, datetime.date.today().year + 1
                     )
                 )
         }
+
+        def __init__(self, *args, **kwargs):
+            AVAILABLE_TIMES = ["17:30", "18:00", "18:30", "19:00", "19:30", "20:00"]  # noqa
+
+            super(BookingForm, self).__init__(*args, **kwargs)
+            self.fields['time'].widget = forms.Select(choices=AVAILABLE_TIMES)

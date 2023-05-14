@@ -28,6 +28,9 @@
             <a class="nav-link" href="{% url 'make_reservation' %}">Reserve</a>
           </li>
           <li class="nav-item">
+            <a class="nav-link" href="{% url 'get_reservation_detail' %}">My Reservation</a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
           </li>
           {% else %}
