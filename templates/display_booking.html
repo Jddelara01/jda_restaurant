@@ -7,10 +7,16 @@
 <div>
     <hr>
     {% for booking in bookings %}
-        <ul>Name: {{ booking.name }}</ul>
-        <ul>Date: {{ booking.date }}</ul>
-        <ul>Time: {{ booking.time }}</ul>
-        <ul>Number of People: {{ booking.num_of_people }}</ul>
+    <ul>ID: {{ booking.id }}</ul>
+    <ul>Name: {{ booking.name }}</ul>
+    <ul>Date: {{ booking.date }}</ul>
+    <ul>Time: {{ booking.time }}</ul>
+    <ul>Number of People: {{ booking.num_of_people }}</ul>
+    <ul>
+        <a href="/delete/{{ booking.id }}">
+            <button>Delete</button>
+        </a>
+    </ul>
     {% endfor %}
 </div>
 

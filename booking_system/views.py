@@ -1,4 +1,4 @@
-from django.shortcuts import render, HttpResponse, get_object_or_404
+from django.shortcuts import render, HttpResponse, get_object_or_404, redirect
 from django.views import generic, View
 from .models import Booking, Table
 from .forms import BookingForm
@@ -27,6 +27,12 @@ def get_reservation_detail(request):
     return render(request, "display_booking.html", {
         'bookings': bookings
     })
+
+
+def delete_booking(request, booking_id):
+    booking = get_object_or_404(Booking, id=booking_id)
+    booking.delete()
+    return redirect("get_reservation_detail")
 
     # def get(self, request, *args, **kw):
     #     booking_query = Booking.objects.filter(email='jane@test.com')

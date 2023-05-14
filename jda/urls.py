@@ -23,5 +23,6 @@ urlpatterns = [
     path('', views.open_home_page, name='open_home_page'),
     path('booking/', views.make_reservation, name='make_reservation'),
     path('display_booking/', views.get_reservation_detail, name='get_reservation_detail'),  # noqa
+    path('delete/<booking_id>', views.delete_booking, name='delete'),
     path('accounts/', include('allauth.urls')),
 ]
